@@ -1,6 +1,6 @@
 export default {
   trim:function(str){
-    return (str+'').replace(/(^\s*)|(\s*$)/g, "");
+    return str.replace(/(^\s*)|(\s*$)/g, "");
 　},
   /*去除字符串左边空格*/
 　ltrim:function(str){
@@ -21,7 +21,7 @@ export default {
   },
   isCnName:function(str){
     //return /^([\u4e00-\u9fa5]+(·{0,1})){0,4}[\u4e00-\u9fa5]$/.test(str);
-    return /^[\u4E00-\u9FA5\u9FA6-\u9FBB]{2,6}$/.test(str);
+    return /^[\u4E00-\u9FA5\u9FA6-\u9FBB]{2,5}$/.test(str);
   },
   isEmail:function(str){
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(str);
@@ -42,7 +42,7 @@ export default {
   isIncludeTwoType:function(str){
     return /^[a-zA-Z0-9]*(([A-Z][a-z])|([A-Z][0-9])|([a-z][0-9])|([a-z][A-Z])|([0-9][A-Z])|([0-9][a-z]))+[a-zA-Z0-9]*$/.test(str)
   },
-  /*判断值是否为空*/
+  /*判断字符串是否为空*/
   isEmpty:function(val){
     if ((val === null || typeof val === "undefined") || (typeof val === "string" && val.trim() === "") || val === undefined ){
       return true;
