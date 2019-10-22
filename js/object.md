@@ -102,3 +102,27 @@ function deepCopy(obj, cache) {
   return copy
 }
 ```
+
+3. 深层次取值或设置值，参考Vue
+```
+function getVMVal(vm, exp) {
+  var val = vm;
+ 	exp = exp.split('.');
+ 	exp.forEach(function(k) {
+ 	  val = val[k];
+ 	});
+ 	return val;
+}
+function setVMVal(vm, exp, value) {
+ 	var val = vm;
+ 	exp = exp.split('.');
+ 	exp.forEach(function(k, i) {
+   	// 非最后一个key，更新val的值
+   	if (i < exp.length - 1) {
+   	  val = val[k];
+   	} else {
+   	  val[k] = value;
+   	}
+ 	});
+}
+```
